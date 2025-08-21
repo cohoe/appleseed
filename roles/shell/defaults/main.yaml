@@ -1,0 +1,47 @@
+---
+# ZSH
+ohmyzsh_directory: ~/.oh-my-zsh
+ohmyzsh_repo: https://github.com/robbyrussell/oh-my-zsh
+ohmyzsh_theme: lukerandall
+
+# NVM
+nvm_repo: https://github.com/creationix/nvm.git
+nvm_directory: ~/.nvm
+
+# Face
+user_face: http://i.grntm.co/headshot3.jpg
+
+# Git
+git_email: grant@grantcohoe.com
+git_init_default_branch: main
+
+project_dirs_all: [ 'public', 'private' ]
+
+# Packages
+shell_packages:
+  Fedora:
+    - zsh
+    - tmux
+    - screen
+    # Fedora 33 ditched Vim. vim-enhanced came from shell
+    - vim-enhanced
+  Ubuntu:
+    - zsh
+    - tmux
+    - screen
+    - vim
+rvm_packages:
+  Fedora:
+    - autoconf
+    - automake
+    - bison
+    - gcc-c++
+    - libffi-devel
+    - libtool
+    - libyaml-devel
+    - readline-devel
+    - sqlite-devel
+    - openssl-devel
+  Ubuntu:
+    - autoconf
+    - automake

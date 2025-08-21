@@ -1,0 +1,20 @@
+---
+- include_tasks: "{{ task_item }}"
+  with_items:
+    - homedir.yaml
+    - zsh.yaml
+    - git.yaml
+    #- rvm.yml
+    - nvm.yaml
+  loop_control:
+    loop_var: task_item
+
+- name: install user dotfiles
+  copy:
+    dest: "~/.{{ item }}"
+    src: "{{ item }}"
+    backup: yes
+  with_items:
+    - vimrc
+    - screenrc
+    - tmux.conf

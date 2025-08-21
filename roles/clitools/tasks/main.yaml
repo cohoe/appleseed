@@ -1,0 +1,8 @@
+---
+- name: install
+  package:
+    name:
+      - wget
+      - tmux
+      - sl
+    state: present

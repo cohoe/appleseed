@@ -1,0 +1,5 @@
+---
+- name: install
+  package:
+    name: brave-browser
+    state: present

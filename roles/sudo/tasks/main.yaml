@@ -1,0 +1,10 @@
+---
+- name: configure sudoers
+  copy:
+    dest: /etc/sudoers.d/01-admin
+    mode: 0644
+    owner: root
+    group: wheel
+    content: |
+        %admin  ALL=(ALL)   NOPASSWD: ALL
+  become: yes

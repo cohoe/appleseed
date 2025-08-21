@@ -1,0 +1,5 @@
+---
+- name: install
+  package:
+    name: itsycal
+    state: present

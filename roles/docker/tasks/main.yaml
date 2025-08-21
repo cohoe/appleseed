@@ -1,0 +1,7 @@
+---
+- name: install
+  package:
+    name: docker-desktop
+    state: present
+
+# docker completion zsh > ~/.oh-my-zsh/completions/_docker

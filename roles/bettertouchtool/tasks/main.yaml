@@ -1,0 +1,7 @@
+---
+- name: install
+  package:
+    name: bettertouchtool
+    state: present
+
+# @TODO how to load config?

@@ -1,0 +1,12 @@
+---
+- name: install
+  package:
+    name: nvm
+    state: present
+
+- name: create directory
+  file:
+    path: ~/.nvm
+    state: directory
+
+- 

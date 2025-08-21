@@ -1,0 +1,24 @@
+---
+# A Mac computer
+#
+- name: Mac
+  hosts: all
+  roles:
+    - clitools
+    - ferdium
+    - spotify
+    - 1password
+    - bettertouchtool
+    - alt-tab
+    - sublime
+    - brave
+    - iterm2
+    - shell
+    - alfred
+    - bartender
+    - itsycal
+    - cursor
+    - sudo
+    - docker
+  vars_files:
+    - ../vars/global.yml

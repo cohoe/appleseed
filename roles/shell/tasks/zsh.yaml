@@ -1,0 +1,22 @@
+# ZSH
+- name: install zshrc
+  template:
+    src: zshrc
+    dest: ~/.zshrc
+
+- name: download oh-my-zsh
+  git:
+    repo: "{{ ohmyzsh_repo }}"
+    dest: "{{ ohmyzsh_directory }}"
+
+- name: copy custom configuration
+  copy:
+    src: zsh/
+    dest: "{{ ohmyzsh_directory }}/custom"
+    force: yes
+    backup: yes
+
+- name: create completions dir
+  file:
+    path: "{{ ohmyzsh_directory }}/completions"
+    state: directory

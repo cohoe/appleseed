@@ -1,0 +1,16 @@
+- name: create home subdirs
+  file:
+    path: "{{ item }}"
+    state: directory
+  with_items:
+    - '~/.bin'
+    - '~/Projects'
+
+- name: create project subdirs
+  file:
+    path: "~/Projects/{{ item }}"
+    state: directory
+  with_items:
+    - "{{ project_dirs_all }}"
+    - "{{ project_dirs | default([]) }}"
+
