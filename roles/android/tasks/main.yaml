@@ -1,0 +1,8 @@
+---
+- name: install
+  package:
+    name:
+      - android-commandlinetools
+      - android-platform-tools
+      - android-studio
+    state: present
