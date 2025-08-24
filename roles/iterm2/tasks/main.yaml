@@ -14,5 +14,7 @@
     - { key: PromptOnQuit, value: false, type: bool }
     - { key: QuitWhenAllWindowsClosed, value: true, type: bool }
     - { key: NeverBlockSystemShutdown, value: true, type: bool }
+    # https://stackoverflow.com/questions/14437979/iterm2-scroll-less-output-with-mouse
+    - { key: AlternateMouseScroll, value: true, type: bool }
 
 # @TODO preferences are a giant blob
