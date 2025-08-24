@@ -4,9 +4,15 @@
     name: iterm2
     state: present
 
-- name: No prompt on quit
+- name: Config
   osx_defaults:
     domain: com.googlecode.iterm2
-    key: PromptOnQuit
-    value: false
-    type: bool
+    key: "{{ item.key }}"
+    value: "{{ item.value }}"
+    type: "{{ item.type }}"
+  with_items:
+    - { key: PromptOnQuit, value: false, type: bool }
+    - { key: QuitWhenAllWindowsClosed, value: true, type: bool }
+    - { key: NeverBlockSystemShutdown, value: true, type: bool }
+
+# @TODO preferences are a giant blob
