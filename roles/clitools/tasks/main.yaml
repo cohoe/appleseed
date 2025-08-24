@@ -6,3 +6,5 @@
       - tmux
       - sl
     state: present
+
+- include_tasks: plistwatch.yaml

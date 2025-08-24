@@ -1,0 +1,9 @@
+---
+- name: Check if plistwatch binary exists
+  stat:
+    path: "{{ ansible_env.HOME }}/go/bin/plistwatch"
+  register: plistwatch_binary
+
+- name: Install plistwatch if not present
+  command: go install github.com/catilac/plistwatch@latest
+  when: not plistwatch_binary.stat.exists

@@ -1,0 +1,91 @@
+---
+- name: Reduce Motion
+  osx_defaults:
+    domain: "{{ item.domain }}"
+    key: "{{ item.key }}"
+    value: "{{ item.value }}"
+    type: int
+  with_items:
+    - { domain: com.apple.Accessibility, key: ReduceMotionEnabled, value: 1 }
+    - { domain: com.apple.universalaccess, key: reduceMotion, value: 1 }
+    - { domain: com.apple.Accessibility, key: EnhancedBackgroundContrastEnabled, value: 1 }
+    - { domain: com.apple.universalaccess, key: reduceTransparency, value: 1 }
+
+- name: Show Control Center Items
+  osx_defaults:
+    domain: "com.apple.controlcenter"
+    key: "{{ item.key }}"
+    value: true
+    type: bool
+  with_items:
+    - { key: "NSStatusItem Visible WiFi" }
+    - { key: "NSStatusItem Visible Bluetooth" }
+    - { key: "NSStatusItem Visible Battery" }
+    - { key: "NSStatusItem Visible Volume" }
+
+# The modules does not support dicts.
+# defaults write "AppleFirstWeekday" "Apple Global Domain" '{gregorian=2;}'
+
+- name: Dock
+  osx_defaults:
+    domain: "com.apple.dock"
+    key: "{{ item.key }}"
+    value: "{{ item.value }}"
+    type: "{{ item.type }}"
+  with_items:
+    - { key: "tilesize", value: 25, type: float }
+    - { key: "largesize", value: 100, type: float }
+    - { key: "autohide", value: true, type: bool }
+
+- name: Click Stage Manager Only
+  osx_defaults:
+    domain: "com.apple.WindowManager"
+    key: "EnableStandardClickToShowDesktop"
+    value: false
+    type: bool
+
+- name: Disable Tiling by Edge Drag
+  osx_defaults:
+    domain: "com.apple.WindowManager"
+    key: "{{ item.key }}"
+    value: "{{ item.value }}"
+    type: bool
+  with_items:
+    - { key: "EnableTilingByEdgeDrag", value: false }
+    - { key: "EnableTopTilingByEdgeDrag", value: true }
+    - { key: "EnableTiledWindowMargins", value: false }
+
+- name: Disable UI Audio
+  osx_defaults:
+    domain: "Apple Global Domain"
+    key: "com.apple.sound.uiaudio.enabled"
+    value: 0
+    type: int
+
+# Play Sound on Startup is not a defaults thing. TBD where.
+
+- name: Trackpad Speed
+  osx_defaults:
+    domain: "Apple Global Domain"
+    key: "com.apple.trackpad.scaling"
+    value: 0.6875
+    type: float
+
+- name: Disable Natural Scroll Direction
+  osx_defaults:
+    domain: "Apple Global Domain"
+    key: "com.apple.swipescrolldirection"
+    value: false
+    type: bool
+
+- name: Swipe Between Pages - Three Fingers
+  osx_defaults:
+    domain: "{{ item.domain }}"
+    key: "{{ item.key }}"
+    value: "{{ item.value }}"
+    type: "{{ item.type }}"
+  with_items:
+    - { domain: "Apple Global Domain", key: "AppleEnableSwipeNavigateWithScrolls", value: false, type: bool }
+    - { domain: "com.apple.driver.AppleBluetoothMultitouch.trackpad", key: "TrackpadThreeFingerHorizSwipeGesture", value: 1, type: int }
+    - { domain: "com.apple.AppleMultitouchTrackpad", key: "TrackpadThreeFingerHorizSwipeGesture", value: 1, type: int }
+

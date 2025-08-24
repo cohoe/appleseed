@@ -4,24 +4,26 @@
 - name: Mac
   hosts: all
   roles:
-#    - clitools
-#    - ferdium
-#    - spotify
-#    - 1password
-#    - bettertouchtool
-#    - alt-tab
-#    - sublime
-#    - brave
-#    - iterm2
-#    - shell
-#    - alfred
-#    - bartender
-#    - itsycal
-#    - cursor
-#    - sudo
-#    - docker
-#    - android
+    - clitools
+    - ferdium
+    - spotify
+    - 1password
+    - bettertouchtool
+    - alt-tab
+    - sublime
+    - brave
+    - iterm2
+    - shell
+    - alfred
+    - bartender
+    - itsycal
+    - cursor
+    - sudo
+    - docker
+    - android
     - java
     - signal
+    - golang
+    - finder
   vars_files:
     - ../vars/global.yml
