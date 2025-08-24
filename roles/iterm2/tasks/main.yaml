@@ -3,3 +3,10 @@
   package:
     name: iterm2
     state: present
+
+- name: No prompt on quit
+  osx_defaults:
+    domain: com.googlecode.iterm2
+    key: PromptOnQuit
+    value: false
+    type: bool
