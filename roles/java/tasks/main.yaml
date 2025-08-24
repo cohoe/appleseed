@@ -1,5 +1,7 @@
 ---
 - name: install
   package:
-    name: corretto@21
+    name:
+      - corretto@21
+      - keystore-explorer
     state: present
