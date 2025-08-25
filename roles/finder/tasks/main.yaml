@@ -89,3 +89,8 @@
     - { domain: "com.apple.driver.AppleBluetoothMultitouch.trackpad", key: "TrackpadThreeFingerHorizSwipeGesture", value: 1, type: int }
     - { domain: "com.apple.AppleMultitouchTrackpad", key: "TrackpadThreeFingerHorizSwipeGesture", value: 1, type: int }
 
+- name: Dark Mode
+  osx_defaults:
+    domain: Apple Global Domain
+    key: AppleInterfaceStyle
+    value: 'Dark'
