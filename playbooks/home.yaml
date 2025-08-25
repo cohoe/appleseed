@@ -1,7 +1,7 @@
 ---
-# A Mac computer with encrypted vars
+# Home with encrypted. Run the mac playbook first.
 #
-- name: Mac Secret
+- name: Home
   hosts: all
   vars_files:
     - ../vars/global.yml
