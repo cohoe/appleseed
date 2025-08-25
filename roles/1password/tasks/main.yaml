@@ -1,5 +1,7 @@
 ---
 - name: install
   package:
-    name: 1password
+    name:
+      - 1password
+      - 1password-cli
     state: present

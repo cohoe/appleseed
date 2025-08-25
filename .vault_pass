@@ -1,0 +1,2 @@
+#!/usr/bin/env zsh
+op read "op://Private/Appleseed Vars Home/password"

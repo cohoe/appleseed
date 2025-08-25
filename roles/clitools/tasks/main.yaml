@@ -5,6 +5,7 @@
       - wget
       - tmux
       - sl
+      - mactex
     state: present
 
 - include_tasks: plistwatch.yaml
