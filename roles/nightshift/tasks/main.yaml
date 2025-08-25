@@ -1,0 +1,14 @@
+---
+- name: install
+  package:
+    name: smudge/smudge/nightlight
+    state: present
+
+- name: check current schedule
+  command: nightlight schedule
+  register: current_schedule
+  changed_when: false
+
+- name: set schedule
+  command: nightlight schedule 9:00pm 10:00am
+  when: current_schedule.stdout != "9:00pm to 10:00am"

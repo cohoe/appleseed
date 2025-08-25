@@ -25,5 +25,6 @@
     - signal
     - golang
     - finder
+    - nightshift
   vars_files:
     - ../vars/global.yml
