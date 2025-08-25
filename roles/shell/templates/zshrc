@@ -47,7 +47,11 @@ DISABLE_AUTO_UPDATE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git tmux)
+plugins=(git git-prompt tmux)
+
+# https://github.com/ohmyzsh/ohmyzsh/issues/12327
+# https://github.com/ohmyzsh/ohmyzsh/issues/12328
+zstyle ':omz:alpha:lib:git' async-prompt force
 
 source $ZSH/oh-my-zsh.sh
 
