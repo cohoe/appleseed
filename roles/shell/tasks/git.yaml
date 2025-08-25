@@ -1,7 +1,7 @@
 - name: install git switcher
   copy:
     src: git-switch-remote
-    dest: "~/.bin/git-switch-remote"
+    dest: "{{ user_bin_dir }}/git-switch-remote"
     mode: 0755
 
 - name: install base git configs

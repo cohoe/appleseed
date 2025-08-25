@@ -3,12 +3,12 @@
     path: "{{ item }}"
     state: directory
   with_items:
-    - '~/.bin'
-    - '~/Projects'
+    - "{{ user_bin_dir }}"
+    - "{{ user_projects_dir }}"
 
 - name: create project subdirs
   file:
-    path: "~/Projects/{{ item }}"
+    path: "{{ user_projects_dir }}/{{ item }}"
     state: directory
   with_items:
     - "{{ project_dirs_all }}"
