@@ -1,0 +1,37 @@
+---
+- name: install packages
+  package:
+    name:
+      - rcloneview
+      - rclone
+    state: present
+
+# This is different than the workstation backups because those run as root.
+# These happen as me
+- name: create config directories
+  file:
+    path: "{{ item }}"
+    state: directory
+    recurse: yes
+  with_items: 
+    - '~/.config/rclone'
+
+# Don't install the NAS configs on the laptop. Will be a little tin-foil-y
+- name: rclone config file
+  template:
+    src: rclone.conf.j2
+    dest: '~/.config/rclone/rclone.conf'
+    mode: 0600
+
+# - name: browser config file
+#   copy:
+#     src: rclone-browser.conf
+#     dest: '~/.config/rclone-browser/rclone-browser.conf'
+#     force: no
+
+- name: install rclone-prune script
+  copy:
+    src: rclone-prune.sh
+    dest: "{{ user_bin_dir }}/rclone-prune"
+    mode: '0755'
+    force: yes

@@ -7,4 +7,5 @@
     - ../vars/global.yml
     - ../vars/home.yml
   roles:
+    - backups/nas
     - ssh
