@@ -5,6 +5,7 @@
   hosts: all
   roles:
     - clitools
+    - guitools
     - ferdium
     - spotify
     - 1password
