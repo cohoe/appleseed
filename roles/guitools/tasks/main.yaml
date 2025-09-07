@@ -3,4 +3,5 @@
   package:
     name:
       - gimp
+      - vlc
     state: present
