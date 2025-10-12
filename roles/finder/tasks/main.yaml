@@ -8,7 +8,11 @@
   with_items:
     - { domain: com.apple.Accessibility, key: ReduceMotionEnabled, value: 1 }
     - { domain: com.apple.universalaccess, key: reduceMotion, value: 1 }
-    - { domain: com.apple.Accessibility, key: EnhancedBackgroundContrastEnabled, value: 1 }
+    - {
+        domain: com.apple.Accessibility,
+        key: EnhancedBackgroundContrastEnabled,
+        value: 1,
+      }
     - { domain: com.apple.universalaccess, key: reduceTransparency, value: 1 }
 
 - name: Show Control Center Items
@@ -85,12 +89,33 @@
     value: "{{ item.value }}"
     type: "{{ item.type }}"
   with_items:
-    - { domain: "Apple Global Domain", key: "AppleEnableSwipeNavigateWithScrolls", value: false, type: bool }
-    - { domain: "com.apple.driver.AppleBluetoothMultitouch.trackpad", key: "TrackpadThreeFingerHorizSwipeGesture", value: 1, type: int }
-    - { domain: "com.apple.AppleMultitouchTrackpad", key: "TrackpadThreeFingerHorizSwipeGesture", value: 1, type: int }
+    - {
+        domain: "Apple Global Domain",
+        key: "AppleEnableSwipeNavigateWithScrolls",
+        value: false,
+        type: bool,
+      }
+    - {
+        domain: "com.apple.driver.AppleBluetoothMultitouch.trackpad",
+        key: "TrackpadThreeFingerHorizSwipeGesture",
+        value: 1,
+        type: int,
+      }
+    - {
+        domain: "com.apple.AppleMultitouchTrackpad",
+        key: "TrackpadThreeFingerHorizSwipeGesture",
+        value: 1,
+        type: int,
+      }
 
 - name: Dark Mode
   osx_defaults:
     domain: Apple Global Domain
     key: AppleInterfaceStyle
-    value: 'Dark'
+    value: "Dark"
+
+- name: Always Show Scroll Bars
+  osx_defaults:
+    domain: Apple Global Domain
+    key: AppleShowScrollBars
+    value: "Always"
