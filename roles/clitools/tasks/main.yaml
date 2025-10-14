@@ -6,6 +6,7 @@
       - tmux
       - sl
       - mactex
+      - imagemagick
     state: present
 
 - include_tasks: plistwatch.yaml
