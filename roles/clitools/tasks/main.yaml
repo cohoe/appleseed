@@ -8,6 +8,7 @@
       - mactex
       - imagemagick
       - watchman
+      - htop
     state: present
 
 - include_tasks: plistwatch.yaml
