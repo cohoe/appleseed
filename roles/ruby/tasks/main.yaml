@@ -2,8 +2,8 @@
 - name: install
   package:
     name:
-      - gimp
-      - vlc
-      - zoom
-      - audacity
+      - rbenv
+      - rbenv-bundler
     state: present
+
+# rbenv init

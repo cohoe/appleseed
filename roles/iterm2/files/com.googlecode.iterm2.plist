@@ -34,6 +34,10 @@
 	<true/>
 	<key>NeverBlockSystemShutdown</key>
 	<true/>
+	<key>NeverWarnAboutShortLivedSessions_C152002F-09A4-490C-B080-19C55906F0F1</key>
+	<true/>
+	<key>NeverWarnAboutShortLivedSessions_C152002F-09A4-490C-B080-19C55906F0F1_selection</key>
+	<integer>0</integer>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>

@@ -27,5 +27,6 @@
     - golang
     - finder
     - nightshift
+    - ruby
   vars_files:
     - ../vars/global.yml
