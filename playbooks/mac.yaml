@@ -4,6 +4,8 @@
 - name: Mac
   hosts: all
   roles:
+    # clitools needs golang
+    - golang
     - clitools
     - guitools
     - ferdium
@@ -12,7 +14,6 @@
     - bettertouchtool
     - alt-tab
     - sublime
-    - brave
     - iterm2
     - shell
     - alfred
@@ -24,7 +25,6 @@
     - android
     - java
     - signal
-    - golang
     - finder
     - nightshift
     - ruby

@@ -119,3 +119,10 @@
     domain: Apple Global Domain
     key: AppleShowScrollBars
     value: "Always"
+
+- name: Function Keys
+  osx_defaults:
+    domain: Apple Global Domain
+    key: "com.apple.keyboard.fnState"
+    value: true
+    type: bool

@@ -9,3 +9,4 @@
   roles:
     - backups/nas
     - ssh
+    - brave

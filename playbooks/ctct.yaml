@@ -1,0 +1,10 @@
+---
+# Work with encrypted. Run the mac playbook first.
+#
+- name: CTCT
+  hosts: all
+  vars_files:
+    - ../vars/global.yml
+  roles:
+    - finder
+    - firefox

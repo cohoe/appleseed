@@ -1,4 +1,8 @@
 ---
+- name: tap
+  homebrew_tap:
+    name: smudge/smudge
+
 - name: install
   package:
     name: smudge/smudge/nightlight
