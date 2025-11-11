@@ -1,0 +1,10 @@
+---
+- name: install
+  package:
+    name:
+      - awscli
+      - weaveworks/tap/eksctl
+      - aws-sso-util
+      - awsume
+      - python-setuptools
+    state: present

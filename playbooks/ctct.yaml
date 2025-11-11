@@ -6,5 +6,6 @@
   vars_files:
     - ../vars/global.yml
   roles:
-    - finder
     - firefox
+    - ssh
+    - k8s

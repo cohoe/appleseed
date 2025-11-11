@@ -1,0 +1,7 @@
+---
+- name: install
+  package:
+    name:
+      - k9s
+      - helm
+    state: present
