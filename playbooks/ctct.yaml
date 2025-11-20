@@ -6,6 +6,7 @@
   vars_files:
     - ../vars/global.yml
   roles:
-    - firefox
-    - ssh
+    #- firefox
+    #- ssh
     - k8s
+    #- akeyless

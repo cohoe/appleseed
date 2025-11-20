@@ -5,3 +5,6 @@
       - k9s
       - helm
     state: present
+
+- name: include openshift tasks
+  include_tasks: openshift.yaml

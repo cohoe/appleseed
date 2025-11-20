@@ -1,0 +1,9 @@
+---
+- name: tap
+  homebrew_tap:
+    name: akeylesslabs/tap
+
+- name: install
+  package:
+    name: akeylesslabs/tap/akeyless
+    state: present

@@ -1,0 +1,31 @@
+---
+- name: install openshift-cli
+  package:
+    name: openshift-cli
+    state: present
+
+- name: check if hypershift binary exists
+  stat:
+    path: "{{ ansible_env.HOME }}/.bin/hypershift"
+  register: hypershift_binary
+
+- name: clone hypershift repository
+  git:
+    repo: https://github.com/openshift/hypershift.git
+    dest: "{{ ansible_env.HOME }}/Projects/public/hypershift"
+    update: no
+  when: not hypershift_binary.stat.exists
+
+- name: build hypershift
+  command: make build
+  args:
+    chdir: "{{ ansible_env.HOME }}/Projects/public/hypershift"
+  when: not hypershift_binary.stat.exists
+
+- name: install hypershift binary
+  copy:
+    src: "{{ ansible_env.HOME }}/Projects/public/hypershift/bin/hypershift"
+    dest: "{{ ansible_env.HOME }}/.bin/hypershift"
+    mode: '0755'
+    remote_src: yes
+  when: not hypershift_binary.stat.exists
