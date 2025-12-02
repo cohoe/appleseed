@@ -3,3 +3,14 @@
   package:
     name: itsycal
     state: present
+
+- name: Config
+  osx_defaults:
+    domain: com.mowglii.ItsycalApp
+    key: "{{ item.key }}"
+    value: "{{ item.value }}"
+    type: "{{ item.type }}"
+  with_items:
+    - { key: MenuBarIconType, value: 2, type: int }
+    - { key: WeekStartDOW, value: 1, type: int }
+    - { key: SizePreference, value: 2, type: float }
