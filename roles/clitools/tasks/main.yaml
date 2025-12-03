@@ -9,6 +9,7 @@
       - imagemagick
       - watchman
       - htop
+      - exiftool
     state: present
 
 - include_tasks: plistwatch.yaml
