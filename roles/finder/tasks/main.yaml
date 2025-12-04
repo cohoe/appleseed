@@ -40,6 +40,8 @@
     - { key: "tilesize", value: 25, type: float }
     - { key: "largesize", value: 100, type: float }
     - { key: "autohide", value: true, type: bool }
+    # Disables the Notes hot corner
+    - { key: "wvous-br-corner", value: 1, type: int }
 
 - name: Click Stage Manager Only
   osx_defaults:
