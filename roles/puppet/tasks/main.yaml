@@ -1,0 +1,10 @@
+---
+- name: tap
+  homebrew_tap:
+    name: puppetlabs/puppet
+
+- name: install
+  package:
+    name: puppetlabs/puppet/pdk
+    state: present
+
