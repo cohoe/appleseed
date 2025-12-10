@@ -1,0 +1,12 @@
+---
+- name: check if rvm is installed
+  stat:
+    path: "{{ ansible_env.HOME }}/.rvm"
+  register: rvm_installed
+
+- name: install rvm
+  shell: curl -sSL https://get.rvm.io | bash -s stable
+  args:
+    creates: "{{ ansible_env.HOME }}/.rvm"
+  when: not rvm_installed.stat.exists
+
