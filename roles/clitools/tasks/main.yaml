@@ -10,6 +10,8 @@
       - watchman
       - htop
       - exiftool
+      - jq
+      - yq
     state: present
 
 - include_tasks: plistwatch.yaml
