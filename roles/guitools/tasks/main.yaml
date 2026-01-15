@@ -6,5 +6,5 @@
       - vlc
       - zoom
       - audacity
-      - wireshark
+      - wireshark-app
     state: present
