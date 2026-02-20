@@ -12,6 +12,8 @@
       - exiftool
       - jq
       - yq
+      - ffmpeg-full
+      - nmap
     state: present
 
 - include_tasks: plistwatch.yaml
