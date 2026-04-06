@@ -14,6 +14,7 @@
       - yq
       - ffmpeg-full
       - nmap
+      - gh
     state: present
 
 - include_tasks: plistwatch.yaml

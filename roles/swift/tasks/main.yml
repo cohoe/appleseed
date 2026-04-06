@@ -1,0 +1,5 @@
+---
+- name: install sourcekitten
+  package:
+    name: sourcekitten
+    state: present
