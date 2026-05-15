@@ -15,6 +15,7 @@
       - ffmpeg-full
       - nmap
       - gh
+      - iperf3
     state: present
 
 - include_tasks: plistwatch.yaml
