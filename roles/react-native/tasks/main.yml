@@ -1,0 +1,8 @@
+---
+# @TODO this is missing like everything
+- name: install expo tools
+  package:
+    name:
+      - fastlane
+      - cocoapods
+    state: present
