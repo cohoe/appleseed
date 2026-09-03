@@ -1,32 +1,30 @@
 ---
-# A Mac computer
-#
+# Any Mac computer
 - name: Mac
   hosts: all
   roles:
     # clitools needs golang
-#    - golang
-#    - clitools
-#    - guitools
-#    - ferdium
-#    - spotify
-#    - 1password
-#    - bettertouchtool
-#    - alt-tab
-#    - sublime
-#    - iterm2
+    - golang
+    - clitools
+    - guitools
+    - ferdium
+    - spotify
+    - 1password
+    - bettertouchtool
+    - alt-tab
+    - sublime
+    - iterm2
     - shell
-#    - alfred
-#    - bartender
-#    - itsycal
-#    - cursor
-#    - sudo
-#    - docker
-#    - android
-#    - java
-#    - signal
-#    - finder
-#    - nightshift
-#    - ruby
+    - alfred
+    - bartender
+    - itsycal
+    - cursor
+    - sudo
+    - docker
+    - android
+    - java
+    - finder
+    - nightshift
+    - ruby
   vars_files:
     - ../vars/global.yml

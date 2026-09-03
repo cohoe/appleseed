@@ -26,6 +26,8 @@
 	<string>https://api.openai.com/v1/responses</string>
 	<key>AlternateMouseScroll</key>
 	<true/>
+	<key>AlwaysOpenWindowAtStartup</key>
+	<true/>
 	<key>Default Bookmark Guid</key>
 	<string>C152002F-09A4-490C-B080-19C55906F0F1</string>
 	<key>HapticFeedbackForEsc</key>
@@ -43,6 +45,8 @@
 		<dict>
 			<key>ASCII Anti Aliased</key>
 			<true/>
+			<key>Allow Alternate Mouse Scroll</key>
+			<false/>
 			<key>Ambiguous Double Width</key>
 			<false/>
 			<key>Ansi 0 Color</key>
@@ -1195,6 +1199,45 @@
 			<string>xterm-256color</string>
 			<key>Transparency</key>
 			<real>0.0</real>
+			<key>Triggers</key>
+			<array>
+				<dict>
+					<key>action</key>
+					<string>PasswordTrigger</string>
+					<key>contentregex</key>
+					<string></string>
+					<key>disabled</key>
+					<integer>0</integer>
+					<key>matchType</key>
+					<integer>0</integer>
+					<key>name</key>
+					<string>Password</string>
+					<key>parameter</key>
+					<string></string>
+					<key>partial</key>
+					<true/>
+					<key>regex</key>
+					<string>(?i)'s password:\s*$</string>
+				</dict>
+				<dict>
+					<key>action</key>
+					<string>PasswordTrigger</string>
+					<key>contentregex</key>
+					<string></string>
+					<key>disabled</key>
+					<integer>0</integer>
+					<key>matchType</key>
+					<integer>0</integer>
+					<key>name</key>
+					<string>Sudo</string>
+					<key>parameter</key>
+					<string></string>
+					<key>partial</key>
+					<true/>
+					<key>regex</key>
+					<string>(?i)\[sudo\] password for [^:]+:\s*$</string>
+				</dict>
+			</array>
 			<key>Unlimited Scrollback</key>
 			<true/>
 			<key>Use Bold Font</key>
@@ -2395,6 +2438,14 @@
 			<string>/Users/grant</string>
 		</dict>
 	</array>
+	<key>OnePasswordAccount</key>
+	<string>47OEKJ2YJRB4LNXFQMZ4CXRRWY</string>
+	<key>OnlyWhenMoreTabs</key>
+	<false/>
+	<key>OpenArrangementAtStartup</key>
+	<false/>
+	<key>OpenNoWindowsAtStartup</key>
+	<false/>
 	<key>PointerActions</key>
 	<dict>
 		<key>Button,1,1,,</key>
@@ -2428,10 +2479,14 @@
 			<string>kNextWindowPointerAction</string>
 		</dict>
 	</dict>
+	<key>Print In Black And White</key>
+	<true/>
 	<key>PromptOnQuit</key>
 	<false/>
 	<key>QuitWhenAllWindowsClosed</key>
 	<true/>
+	<key>RunJobsInServers</key>
+	<false/>
 	<key>SoundForEsc</key>
 	<false/>
 	<key>VisualIndicatorForEsc</key>
