@@ -5,10 +5,12 @@
   hosts: all
   vars_files:
     - ../vars/global.yml
+    - ../vars/claude-ctct.yaml
   roles:
-    - firefox
-    - ssh
-    - k8s
-    - akeyless
-    - puppet
-    - rvm
+    - claude
+#    - firefox
+#    - ssh
+#    - k8s
+#    - akeyless
+#    - puppet
+#    - rvm

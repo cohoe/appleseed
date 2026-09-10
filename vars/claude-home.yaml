@@ -1,0 +1,4 @@
+---
+claude_settings_local:
+  env:
+    CLAUDE_CODE_SUBAGENT_MODEL: "claude-sonnet-5"

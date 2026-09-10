@@ -1,0 +1,18 @@
+---
+claude_settings_path: ~/.claude/settings.json
+claude_settings_local_path: ~/.claude/settings.local.json
+
+claude_settings:
+  autoUpdatesChannel: stable
+  effortLevel: medium
+  permissions:
+    defaultMode: auto
+
+claude_settings_local: {}
+
+claude_permissions_deny:
+  - "git commit*"
+  - "git push*"
+  - "kubectl apply*"
+
+claude_permissions_allow: []

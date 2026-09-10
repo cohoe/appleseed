@@ -1,0 +1,110 @@
+---
+- name: install
+  package:
+    name: claude-code
+    state: present
+
+- name: configure settings
+  vars:
+    _current: "{{ lookup('file', claude_settings_path) | from_json }}"
+  copy:
+    dest: "{{ claude_settings_path }}"
+    content: "{{ _current | combine(claude_settings, recursive=True) | to_nice_json }}"
+  when: claude_settings | length > 0
+  register: settings_result
+
+- name: log settings changes
+  lineinfile:
+    path: "{{ claude_settings_path }}.changelog"
+    line: "{{ ansible_date_time.iso8601 }} applied settings: {{ claude_settings | to_json }}"
+    create: true
+  when: settings_result.changed | default(false)
+
+- name: configure settings.local
+  vars:
+    _current: "{{ lookup('file', claude_settings_local_path) | from_json }}"
+  copy:
+    dest: "{{ claude_settings_local_path }}"
+    content: "{{ _current | combine(claude_settings_local, recursive=True) | to_nice_json }}"
+  when: claude_settings_local | length > 0
+  register: settings_local_result
+
+- name: log settings.local changes
+  lineinfile:
+    path: "{{ claude_settings_local_path }}.changelog"
+    line: "{{ ansible_date_time.iso8601 }} applied settings.local: {{ claude_settings_local | to_json }}"
+    create: true
+  when: settings_local_result.changed | default(false)
+
+- name: read settings for permissions check
+  slurp:
+    src: "{{ claude_settings_path }}"
+  register: settings_raw
+  when: claude_permissions_deny | length > 0 or claude_permissions_allow | length > 0
+
+- name: set settings fact
+  set_fact:
+    settings_current: "{{ settings_raw.content | b64decode | from_json }}"
+  when: claude_permissions_deny | length > 0 or claude_permissions_allow | length > 0
+
+- name: ensure deny list exists
+  copy:
+    dest: "{{ claude_settings_path }}"
+    content: >-
+      {{ settings_current | community.general.json_patch('add', '/permissions/deny', []) | to_nice_json }}
+  when:
+    - claude_permissions_deny | length > 0
+    - settings_current.permissions.deny is not defined
+
+- name: reload settings after deny init
+  set_fact:
+    settings_current: "{{ lookup('file', claude_settings_path) | from_json }}"
+  when: claude_permissions_deny | length > 0
+
+- name: add deny permission entries
+  copy:
+    dest: "{{ claude_settings_path }}"
+    content: >-
+      {{ settings_current | community.general.json_patch('add', '/permissions/deny/-', item) | to_nice_json }}
+  loop: "{{ claude_permissions_deny }}"
+  when: item not in (settings_current.permissions.deny | default([]))
+  register: deny_result
+
+- name: log deny permission changes
+  lineinfile:
+    path: "{{ claude_settings_path }}.changelog"
+    line: "{{ ansible_date_time.iso8601 }} added deny entry: {{ item.item }}"
+    create: true
+  loop: "{{ deny_result.results }}"
+  when: item.changed
+
+- name: ensure allow list exists
+  copy:
+    dest: "{{ claude_settings_path }}"
+    content: >-
+      {{ settings_current | community.general.json_patch('add', '/permissions/allow', []) | to_nice_json }}
+  when:
+    - claude_permissions_allow | length > 0
+    - settings_current.permissions.allow is not defined
+
+- name: reload settings after allow init
+  set_fact:
+    settings_current: "{{ lookup('file', claude_settings_path) | from_json }}"
+  when: claude_permissions_allow | length > 0
+
+- name: add allow permission entries
+  copy:
+    dest: "{{ claude_settings_path }}"
+    content: >-
+      {{ settings_current | community.general.json_patch('add', '/permissions/allow/-', item) | to_nice_json }}
+  loop: "{{ claude_permissions_allow }}"
+  when: item not in (settings_current.permissions.allow | default([]))
+  register: allow_result
+
+- name: log allow permission changes
+  lineinfile:
+    path: "{{ claude_settings_path }}.changelog"
+    line: "{{ ansible_date_time.iso8601 }} added allow entry: {{ item.item }}"
+    create: true
+  loop: "{{ allow_result.results }}"
+  when: item.changed

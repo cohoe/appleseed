@@ -6,7 +6,9 @@
   vars_files:
     - ../vars/global.yml
     - ../vars/home.yml
+    - ../vars/claude-home.yaml
   roles:
+    - claude
     - backups/nas
     - ssh
     - brave
